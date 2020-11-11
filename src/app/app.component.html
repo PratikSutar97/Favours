@@ -1,0 +1,66 @@
+<div  >
+  <mat-toolbar color="primary">
+    <a [routerLink]="['/viewPublic']" style="font-size: 30px;;">Favoronix</a>
+    <span class="content-right"></span>
+    <span *ngIf="isLoggedIn"> Welcome, </span>
+    <span *ngIf="!isLoggedIn"> Welcome, Guest &nbsp; &nbsp;</span>
+      <span class=""  style="font-size: 20px;" *ngIf="isLoggedIn"> &nbsp;{{username}}
+      </span>
+      
+    <div class="dropdown">  
+      <button *ngIf="isLoggedIn" mat-icon-button class="" aria-label="">
+        <mat-icon style="width: 40px;">account_circle</mat-icon>
+      </button>
+      <div class="dropdown-content">
+        <a class="btn">Your Profile</a>
+      </div>
+    </div>
+    <a  class="" aria-label="" *ngIf="!isLoggedIn" [routerLink]="['/login']">
+      <mat-icon>login</mat-icon>
+    </a>
+    <button mat-icon-button  class="" aria-label="" *ngIf="isLoggedIn" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container class="side-menu-container" autosize>
+    <mat-sidenav #sidenav style="background-color: rgb(170, 170, 179);" class="side-menu" mode="side" opened="true">
+      <mat-nav-list>
+        <div class="submenu" [ngClass]="{ expanded: expandSubmenu }">
+          <div>
+                <a mat-list-item href="#" [routerLink]="['/viewPublic']" routerLinkActive="router-link-active" class="well">View Public Requests</a>
+                <a mat-list-item href="#"  [routerLink]="['/addRequest']" routerLinkActive="router-link-active"  class="well">Add Public Requests</a>
+          </div>
+          <br>
+          <hr style="border:5px solid">
+          <a mat-list-item href="#" *ngIf="isLoggedIn" class="well">Add Favours</a>
+          <a mat-list-item href="#" *ngIf="isLoggedIn" class="well">Favours you owe</a>
+          <a mat-list-item href="#" *ngIf="isLoggedIn" class="well">Favors owed to you</a>
+        </div>
+        
+      </mat-nav-list>
+    </mat-sidenav>
+    
+   
+    <router-outlet>
+
+    <div style="float:right">
+      <mat-card class="card" style="text-align:center">
+      <span class="" style="font-size:20px;color: white;
+      text-shadow: 110px 1px 120px rgb(214, 35, 35), 0 0 5px rgb(245, 122, 7), 0 0 15px rgb(255, 102, 0);;" >{{activeRequests*310}}</span><br>
+      <span class="" style="font-size:20px">Total Users till now</span><br>
+    </mat-card>
+    <div class="base">
+      <div class="thread">
+        <mat-card class="card1">
+         
+          <span class="" style="font-size:20px;color: white;
+          text-shadow: 110px 1px 120px rgb(214, 35, 35), 0 0 5px rgb(245, 122, 7), 0 0 15px rgb(255, 102, 0);;" >{{activeRequests}}</span><br>
+           <span class="" style="font-size:20px">Active Requests</span><br>
+        </mat-card>
+      </div>
+    </div> 
+    </div>
+    </router-outlet>
+    
+  </mat-sidenav-container>
+</div>

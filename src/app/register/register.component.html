@@ -1,0 +1,10 @@
+<form  [formGroup]="userform" class="form-signin" (ngSubmit)="signup()" style="width: 25%;margin-left: 30%;">
+    <span style="color:red">{{error}}</span>
+    <h1 class="h3 mb-3 font-weight-normal">Please Register Yourself !!</h1><br>
+    <input type="text"  formControlName="name" class="form-control" placeholder="Full Name" required autofocus><br>
+    <input type="email"  formControlName="email" class="form-control" placeholder="Email address" required ><br>
+    <input type="password" formControlName="password" class="form-control" placeholder="Password" required><br>
+    <input type="password" formControlName="confirm-password" class="form-control" placeholder="Confirm Password" required><br>
+    <input type="text" formControlName="mobile" class="form-control" placeholder="Mobile Number" required><br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+  </form>

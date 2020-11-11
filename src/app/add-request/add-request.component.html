@@ -1,0 +1,27 @@
+<div>
+    <div class="container" >
+        <form [formGroup]="userform" class="example-form" (ngSubmit)="addRequest()">
+            <span style="color:red;float: right;;">{{error}}</span><br>
+            <mat-form-field class="example-full-width" *ngIf="!isloggedin">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput formControlName="name" placeholder="Ex.Pratik">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Category</mat-label>
+                <input type="text" matInput formControlName="title" placeholder="Ex. Office Work or Home Work or Shop Work">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Request Description</mat-label>
+                <input type="text" matInput formControlName="desc" placeholder="Ex. Clean a Fridge">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Reward with Quantity</mat-label>
+                <input type="text" matInput formControlName="reward" placeholder="Ex. 3 Burgers or 1 Dinner or 2 Pizzas etc">
+            </mat-form-field><br>
+            <div style="text-align: center;">
+                <button type="submit" mat-raised-button class="btn btn-primary">submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

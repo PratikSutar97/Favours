@@ -1,0 +1,16 @@
+.well h4 a {
+  font-size: 16px;
+  color: #fff;
+}
+.well p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* .navbar{min-height: } */
+
+.well {
+  background-color: #202125;
+  border: none;
+}

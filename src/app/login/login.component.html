@@ -1,0 +1,13 @@
+<form [formGroup]="userform" class="form-signin" (ngSubmit)="login()" style="width: 25%;margin-left: 30%;margin-top:100px;">
+    <h1 class="h3 mb-3 font-weight-normal"> login In</h1><br>
+
+    <input type="email" formControlName="email" class="form-control" placeholder="Email address" required autofocus><br>
+    <input type="password" formControlName="password" class="form-control" placeholder="Password" required><br>
+    
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button><br>
+    <span style="color: red;" *ngIf="error" >{{error_msg}}</span><br>
+    <a class="link" aria-label="" style="color:blue" [routerLink]="['/register']">
+        New Here ?? Click Me To Register
+    </a><br><br>
+    <a class="btn btn-lg btn-danger btn-block" [routerLink]="['/viewPublic']" style="width:140px;float:right;" type="submit">Cancel</a><br>
+  </form>

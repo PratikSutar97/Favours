@@ -1,0 +1,39 @@
+
+
+<div class="d-flex justify-content-center">
+  <div class="spinner-border" role="status" >
+    <span  id="loading"></span><br>
+    <span  id="loadings">Loading ...</span>
+  </div>
+</div>
+<mat-accordion class="example-headers-align" >
+  <span style="margin-left:20px;font-size: 25px;position:sticky">Public Requests</span><br><br>
+  <!--[expanded]="step === 0" (opened)="setStep(0)"-->
+  <mat-expansion-panel  style="width: 70%;margin-left: 70px;;box-shadow: 1px 1px 5px black;" hideToggle *ngFor="let card of viewData">
+    <mat-expansion-panel-header style="height:70px;">
+      <mat-panel-title style="width: 0%;">
+        <span style="color: Grey ; font-size: 20px;">Category : </span>
+      <span style="font-size:20px;margin-left: 20px;;">{{card.title}}</span>  
+      </mat-panel-title>
+      <mat-panel-title>
+        <p style="font-size: 19px;margin-left: 60%;">
+          Request By -{{card.name}} 
+        </p>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <hr style="border:2px solid black">
+    <mat-panel-title>
+      <span style="color: Grey ; font-size: 20px;">Description : </span>
+      <p style="font-size:20px;margin-left: 20px;;">{{card.desc}}
+      </p>
+    </mat-panel-title><br>
+    <div style="height: auto;">
+        <span style="color: Grey ; font-size: 20px;">Rewards : </span>
+        <span style="font-size:20px;margin-left: 20px;;"> {{card.reward}}</span>
+    </div>
+    <mat-action-row>
+      <button mat-button (click)="openAcceptRequestDialog()" class="btn btn-primary">Accept and Complete Request</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+ 
