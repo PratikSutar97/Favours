@@ -21,11 +21,13 @@ export class LoginComponent implements OnInit {
     private service:RequestService,
     public router:Router,
     public app:AppComponent
-  ) { }
+  ) { 
+    this.error_msg=localStorage.getItem("error_msg");
+  }
 
   ngOnInit(): void {}
   error:number;
-  error_msg=""
+  error_msg=localStorage.getItem("error_msg")
   loggedIn=true;
   username;
   password;
@@ -39,16 +41,7 @@ export class LoginComponent implements OnInit {
   f(){
     return this.userform.value.email;
   }
-  openRegisterComponent(): void {
-    const dialogRef = this.dialog.open(RegisterComponent, {
-      width: '450px',
-      height:'500px',
-      data: {name: this.username, animal: this.password}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  
   login(){
     this.service.login(this.userform.value)
     .subscribe(
@@ -57,16 +50,21 @@ export class LoginComponent implements OnInit {
       },
       err=>{
         this.error=err.status;
-        this.error_msg="Invalid Email or Password !! Try Again";
       }
     )
-    if(this.error!=401){
+    if(this.error==401){
       this.loggedIn=false; 
+      localStorage.setItem("error_msg", "Invalid Email or Password !! Try Again");
     }
     else{
       this.loggedIn=true;
+      localStorage.removeItem("error_msg");
     }
-    if(this.loggedIn==true){
+
+    if(localStorage.getItem("error_msg")==null){
+      return ;
+    }else
+    {
       this.app.f(this.loggedIn,this.userform.value.email)
       this.router.navigate(['/viewPublic'])
     } 

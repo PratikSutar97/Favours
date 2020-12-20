@@ -7,11 +7,13 @@ import { ReturnFavourComponent } from './return-favour/return-favour.component';
 import { ViewRequestComponent } from './view-request/view-request.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MemberFavoursComponent } from './member-favours/member-favours.component';
 
 const routes: Routes = [
   { path: 'viewPublic', component: ViewRequestComponent },
   { path: 'addRequest', component: AddRequestComponent },
   { path: 'addFavour', component: AddFavourComponent },
+  { path: "memberFavour", component:MemberFavoursComponent},
   { path: 'returnFavour', component: ReturnFavourComponent },
   { path: 'login', component: LoginComponent },
   {path:'register',component:RegisterComponent},

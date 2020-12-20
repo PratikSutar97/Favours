@@ -35,7 +35,7 @@ router.post('/signup', async(req,res) => {
             console.log(err)
         }
         else{
-            if(user.email || user.mobile){
+            if(user){
                 res.status(401).send("Already Exists")
             }
             else{

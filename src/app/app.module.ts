@@ -34,7 +34,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { RequestDetailsComponent } from './request-details/request-details.component';
 
 //Api Services
 import {RequestService} from './request.service';
@@ -53,7 +52,6 @@ import { LoginComponent } from './login/login.component';
     AddFavourComponent,
     ReturnFavourComponent,
     ViewRequestComponent,
-    RequestDetailsComponent,
     RegisterComponent,
     LoginComponent,
   ],

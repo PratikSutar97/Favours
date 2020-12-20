@@ -6,10 +6,11 @@
     <span  id="loadings">Loading ...</span>
   </div>
 </div>
-<mat-accordion class="example-headers-align" >
+
+<div style="height: 500px;width:1080px;overflow: scroll;overflow-y: auto;overflow-x: auto;">
   <span style="margin-left:20px;font-size: 25px;position:sticky">Public Requests</span><br><br>
   <!--[expanded]="step === 0" (opened)="setStep(0)"-->
-  <mat-expansion-panel  style="width: 70%;margin-left: 70px;;box-shadow: 1px 1px 5px black;" hideToggle *ngFor="let card of viewData">
+  <mat-expansion-panel  style="width: 90%;margin-left: 70px;;box-shadow: 1px 1px 5px black;" hideToggle *ngFor="let card of viewData">
     <mat-expansion-panel-header style="height:70px;">
       <mat-panel-title style="width: 0%;">
         <span style="color: Grey ; font-size: 20px;">Category : </span>
@@ -35,5 +36,4 @@
       <button mat-button (click)="openAcceptRequestDialog()" class="btn btn-primary">Accept and Complete Request</button>
     </mat-action-row>
   </mat-expansion-panel>
-</mat-accordion>
- 
+</div>

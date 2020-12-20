@@ -1,6 +1,6 @@
-<div>
-    <div class="container" >
-        <form [formGroup]="userform" class="example-form" (ngSubmit)="addRequest()">
+    <div class="container" style="height: 550px;width:1000px;">
+        <span style="margin-left:20px;top: 50px;font-size: 25px;position:sticky">Fill your request form</span>
+        <form [formGroup]="userform" class="example-form" (ngSubmit)="addRequest()">  
             <span style="color:red;float: right;;">{{error}}</span><br>
             <mat-form-field class="example-full-width" *ngIf="!isloggedin">
                 <mat-label>Name</mat-label>
@@ -24,4 +24,3 @@
 
         </form>
     </div>
-</div>

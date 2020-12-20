@@ -6,53 +6,54 @@
     <span *ngIf="!isLoggedIn"> Welcome, Guest &nbsp; &nbsp;</span>
       <span class=""  style="font-size: 20px;" *ngIf="isLoggedIn"> &nbsp;{{username}}
       </span>
-      
+    
+    <!--Account Circle -->
     <div class="dropdown">  
-      <button *ngIf="isLoggedIn" mat-icon-button class="" aria-label="">
-        <mat-icon style="width: 40px;">account_circle</mat-icon>
+      <button *ngIf="isLoggedIn" class="btnns" mat-icon-button class="" aria-label="">
+        <mat-icon  style="width: 40px;">account_circle</mat-icon>
       </button>
       <div class="dropdown-content">
-        <a class="btn">Your Profile</a>
+        <a class="btnn">Your Profile</a>
       </div>
     </div>
-    <a  class="" aria-label="" *ngIf="!isLoggedIn" [routerLink]="['/login']">
+
+    <a class="" aria-label="" *ngIf="!isLoggedIn" [routerLink]="['/login']">
       <mat-icon>login</mat-icon>
     </a>
     <button mat-icon-button  class="" aria-label="" *ngIf="isLoggedIn" (click)="logout()">
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
+  <div>
+    <div style="float: left;width: 12%;background-color: red;">
   <mat-sidenav-container class="side-menu-container" autosize>
-    <mat-sidenav #sidenav style="background-color: rgb(170, 170, 179);" class="side-menu" mode="side" opened="true">
-      <mat-nav-list>
-        <div class="submenu" [ngClass]="{ expanded: expandSubmenu }">
+    <mat-sidenav #sidenav style="background-color: rgb(168, 168, 255);" class="side-menu" mode="side" opened="true">
+      <mat-nav-list> 
           <div>
                 <a mat-list-item href="#" [routerLink]="['/viewPublic']" routerLinkActive="router-link-active" class="well">View Public Requests</a>
                 <a mat-list-item href="#"  [routerLink]="['/addRequest']" routerLinkActive="router-link-active"  class="well">Add Public Requests</a>
           </div>
           <br>
-          <hr style="border:5px solid">
-          <a mat-list-item href="#" *ngIf="isLoggedIn" class="well">Add Favours</a>
-          <a mat-list-item href="#" *ngIf="isLoggedIn" class="well">Favours you owe</a>
-          <a mat-list-item href="#" *ngIf="isLoggedIn" class="well">Favors owed to you</a>
-        </div>
-        
+          <hr style="border:5px solid" *ngIf="isLoggedIn">
+          <a mat-list-item href="#" [routerLink]="['/addFavour']" routerLinkActive="router-link-active" *ngIf="isLoggedIn" class="well">Add Favours</a>
+          <a mat-list-item href="#" [routerLink]="['/returnFavour']" routerLinkActive="router-link-active" *ngIf="isLoggedIn" class="well">Favours you owe</a>
+          <a mat-list-item href="#" [routerLink]="['/memberFavour']" routerLinkActive="router-link-active" *ngIf="isLoggedIn" class="well">Favors owed to you</a>
       </mat-nav-list>
     </mat-sidenav>
-    
-   
-    <router-outlet>
+  </mat-sidenav-container>
+</div>
+  <div style="width: 88%;float: right;">
+  <router-outlet>
 
-    <div style="float:right">
+    <div style="float:right;" >
       <mat-card class="card" style="text-align:center">
       <span class="" style="font-size:20px;color: white;
-      text-shadow: 110px 1px 120px rgb(214, 35, 35), 0 0 5px rgb(245, 122, 7), 0 0 15px rgb(255, 102, 0);;" >{{activeRequests*310}}</span><br>
+      text-shadow: 110px 1px 120px rgb(214, 35, 35), 0 0 5px rgb(245, 122, 7), 0 0 15px rgb(255, 102, 0);;" >{{10}}</span><br>
       <span class="" style="font-size:20px">Total Users till now</span><br>
     </mat-card>
     <div class="base">
       <div class="thread">
         <mat-card class="card1">
-         
           <span class="" style="font-size:20px;color: white;
           text-shadow: 110px 1px 120px rgb(214, 35, 35), 0 0 5px rgb(245, 122, 7), 0 0 15px rgb(255, 102, 0);;" >{{activeRequests}}</span><br>
            <span class="" style="font-size:20px">Active Requests</span><br>
@@ -60,7 +61,15 @@
       </div>
     </div> 
     </div>
+
+    <div class="ads">
+    </div>
     </router-outlet>
-    
-  </mat-sidenav-container>
+    <section *ngIf="!isLoggedIn" class="text-gray-700 body-font">
+      <div class="box1 sb5" style="margin-top: -50px;">
+        <h1 class="sm:text-3xl font-medium title-font mb-4 text-gray-900" id="blink">Login to explore more features.</h1>
+      </div>
+    </section>
+    </div>
+  </div>
 </div>
